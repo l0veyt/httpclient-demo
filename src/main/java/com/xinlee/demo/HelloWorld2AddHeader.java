@@ -1,6 +1,7 @@
 package com.xinlee.demo;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpStatus;
 import org.apache.http.StatusLine;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -27,7 +28,7 @@ public class HelloWorld2AddHeader {
         System.out.println(statusLine.getStatusCode());             // 打印状态码 200
         System.out.println(statusLine.getReasonPhrase());           // 打印原因短语 OK
         System.out.println("----------------------------------------------------------");
-        if(200 == statusLine.getStatusCode()) {
+        if(HttpStatus.SC_OK == statusLine.getStatusCode()) {
             /**
              * 手动方式获取响应实体的内容
              * 推荐：EntityUtils.toString(HttpEntity entity, "UTF-8")

@@ -1,6 +1,7 @@
 package com.xinlee.demo;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -33,7 +34,7 @@ public class HelloWorld5TimeOut {
         request.setConfig(requestConfig);
         request.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36");
         CloseableHttpResponse response = client.execute(request);
-        if(200 == response.getStatusLine().getStatusCode()) {
+        if(HttpStatus.SC_OK == response.getStatusLine().getStatusCode()) {
             HttpEntity entity = response.getEntity();
             String content = EntityUtils.toString(entity);
             System.out.println(content);

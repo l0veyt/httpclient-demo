@@ -1,8 +1,8 @@
 package com.xinlee.demo;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -23,7 +23,7 @@ public class HelloWorld3CatchImage {
         CloseableHttpClient client = HttpClients.createDefault();
         HttpGet request = new HttpGet("http://i0.hdslb.com/bfs/archive/4b9c7031618e743f3ed3e13f74ebc0130c55d981.jpg");
         CloseableHttpResponse response = client.execute(request);
-        if(200 == response.getStatusLine().getStatusCode()) {
+        if(HttpStatus.SC_OK == response.getStatusLine().getStatusCode()) {
             HttpEntity entity = response.getEntity();
             System.out.println("Content-Type:" + entity.getContentType().getValue());
             // 获取响应实体内容的输入流
