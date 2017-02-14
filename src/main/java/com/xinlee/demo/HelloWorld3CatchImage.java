@@ -29,7 +29,7 @@ public class HelloWorld3CatchImage {
             // 获取响应实体内容的输入流
             InputStream is = entity.getContent();
             String filename = UUID.randomUUID().toString().replace("-", "") + ".jpg";
-            FileUtils.copyToFile(is, new File("C:" + File.separator + "Users" + File.separator + "xin.lee" + File.separator + "Desktop" + File.separator + filename));
+            FileUtils.copyToFile(is, new File(System.getProperty("user.home") + File.separator + "Desktop" + File.separator + filename));
         }else {
             System.out.println(response.getStatusLine().getStatusCode());
         }
